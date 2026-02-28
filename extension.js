@@ -1,10 +1,11 @@
+// AUTO-GENERATED from project-compassionate-code. Do not edit directly.
 const vscode = require("vscode");
 
 /**
- * Speciesist language patterns mapped to their suggested alternatives.
+ * Animal violence language patterns mapped to their suggested alternatives.
  *
  * Each entry contains:
- *   pattern  - A case-insensitive RegExp that matches the speciesist phrase.
+ *   pattern  - A case-insensitive RegExp that matches the violent animal phrase.
  *              Word boundaries (\b) prevent false positives inside larger words.
  *   phrase   - The human-readable label shown in the diagnostic message.
  *   suggest  - The recommended replacement text.
@@ -14,89 +15,209 @@ const vscode = require("vscode");
  */
 const PATTERNS = [
   {
-    pattern: /\bkill two birds with one stone\b/gi,
+    pattern: /\bkill\s+two\s+birds\s+with\s+one\s+stone\b/gi,
     phrase: "kill two birds with one stone",
     suggest: "accomplish two things at once",
   },
   {
-    pattern: /\bbeating a dead horse\b/gi,
-    phrase: "beating a dead horse",
-    suggest: "belaboring the point",
-  },
-  {
-    pattern: /\bbeat a dead horse\b/gi,
+    pattern: /\bbeat(ing)?\s+a\s+dead\s+horse\b/gi,
     phrase: "beat a dead horse",
     suggest: "belabor the point",
   },
   {
-    pattern: /\bbring home the bacon\b/gi,
-    phrase: "bring home the bacon",
-    suggest: "bring home the results",
-  },
-  {
-    pattern: /\bguinea pig\b/gi,
-    phrase: "guinea pig",
-    suggest: "test subject",
-  },
-  {
-    pattern: /\bmore than one way to skin a cat\b/gi,
+    pattern: /\bmore\s+than\s+one\s+way\s+to\s+skin\s+a\s+cat\b/gi,
     phrase: "more than one way to skin a cat",
     suggest: "more than one way to solve this",
   },
   {
-    pattern: /\blet the cat out of the bag\b/gi,
+    pattern: /\blet\s+the\s+cat\s+out\s+of\s+the\s+bag\b/gi,
     phrase: "let the cat out of the bag",
     suggest: "reveal the secret",
   },
   {
-    pattern: /\bopen a can of worms\b/gi,
+    pattern: /\bopen(ing)?\s+a\s+can\s+of\s+worms\b/gi,
     phrase: "open a can of worms",
     suggest: "create a complicated situation",
   },
   {
-    pattern: /\bwild goose chase\b/gi,
+    pattern: /\bwild\s+goose\s+chase\b/gi,
     phrase: "wild goose chase",
-    suggest: "pointless pursuit",
+    suggest: "futile search",
   },
   {
-    pattern: /\bsacred cows\b/gi,
-    phrase: "sacred cows",
-    suggest: "unquestioned beliefs",
+    pattern: /\blike\s+shooting\s+fish\s+in\s+a\s+barrel\b/gi,
+    phrase: "like shooting fish in a barrel",
+    suggest: "trivially easy",
   },
   {
-    pattern: /\bsacred cow\b/gi,
-    phrase: "sacred cow",
-    suggest: "unquestioned belief",
+    pattern: /\bflog(ging)?\s+a\s+dead\s+horse\b/gi,
+    phrase: "flog a dead horse",
+    suggest: "belabor the point",
   },
   {
-    pattern: /\bcattle vs\.?\s*pets\b/gi,
+    pattern: /\bbigger\s+fish\s+to\s+fry\b/gi,
+    phrase: "there are bigger fish to fry",
+    suggest: "more important matters to address",
+  },
+  {
+    pattern: /\bguinea\s+pig\b/gi,
+    phrase: "guinea pig",
+    suggest: "test subject",
+  },
+  {
+    pattern: /\bhold\s+your\s+horses\b/gi,
+    phrase: "hold your horses",
+    suggest: "wait a moment",
+  },
+  {
+    pattern: /\bthe\s+elephant\s+in\s+the\s+room\b/gi,
+    phrase: "the elephant in the room",
+    suggest: "the obvious issue",
+  },
+  {
+    pattern: /\bstraight\s+from\s+the\s+horse'?s\s+mouth\b/gi,
+    phrase: "straight from the horse's mouth",
+    suggest: "directly from the source",
+  },
+  {
+    pattern: /\bbring(ing)?\s+home\s+the\s+bacon\b/gi,
+    phrase: "bring home the bacon",
+    suggest: "bring home the results",
+  },
+  {
+    pattern: /\btake?(ing|ook)?\s+the\s+bull\s+by\s+the\s+horns\b/gi,
+    phrase: "take the bull by the horns",
+    suggest: "face the challenge head-on",
+  },
+  {
+    pattern: /\blike\s+lambs?\s+to\s+(the\s+)?slaughter\b/gi,
+    phrase: "like lambs to the slaughter",
+    suggest: "without resistance",
+  },
+  {
+    pattern: /\bno\s+room\s+to\s+swing\s+a\s+cat\b/gi,
+    phrase: "no room to swing a cat",
+    suggest: "very cramped",
+  },
+  {
+    pattern: /\bred\s+herring\b/gi,
+    phrase: "red herring",
+    suggest: "distraction",
+  },
+  {
+    pattern: /\bdon'?t\s+be\s+a\s+chicken\b/gi,
+    phrase: "don't be a chicken",
+    suggest: "don't hesitate",
+  },
+  {
+    pattern: /\b(code|memory|resource)\s+pig\b/gi,
+    phrase: "pig",
+    suggest: "resource-intensive",
+  },
+  {
+    pattern: /\bcowboy\s+cod(ing|er)\b/gi,
+    phrase: "cowboy coding",
+    suggest: "undisciplined coding",
+  },
+  {
+    pattern: /\bcode\s+monkeys?\b/gi,
+    phrase: "code monkey",
+    suggest: "developer",
+  },
+  {
+    pattern: /\bcattle\s+(vs?\.?|versus)\s+pets?\b/gi,
     phrase: "cattle vs. pets",
     suggest: "ephemeral vs. persistent",
   },
   {
-    pattern: /\bcanary deployment\b/gi,
-    phrase: "canary deployment",
-    suggest: "progressive rollout",
+    pattern: /\bpet\s+project\b/gi,
+    phrase: "pet project",
+    suggest: "side project",
   },
   {
-    pattern: /\bcanary release\b/gi,
-    phrase: "canary release",
-    suggest: "progressive rollout",
+    pattern: /\bcanary\s+in\s+(a|the)\s+coal\s+mine\b/gi,
+    phrase: "canary in a coal mine",
+    suggest: "early warning signal",
   },
   {
-    pattern: /\bmonkey[\s-]?patch/gi,
-    phrase: "monkey patch",
-    suggest: "runtime patch",
-  },
-  {
-    pattern: /\bdogfooding\b/gi,
+    pattern: /\bdog\s?food(ing)?\b/gi,
     phrase: "dogfooding",
     suggest: "self-hosting",
   },
   {
-    pattern: /\blike shooting fish in a barrel\b/gi,
-    phrase: "like shooting fish in a barrel",
-    suggest: "extremely easy",
+    pattern: /\bherding\s+cats\b/gi,
+    phrase: "herding cats",
+    suggest: "coordinating independent contributors",
+  },
+  {
+    pattern: /\bfishing\s+expedition\b/gi,
+    phrase: "go on a fishing expedition",
+    suggest: "exploratory investigation",
+  },
+  {
+    pattern: /\bsacred\s+cows?\b/gi,
+    phrase: "sacred cow",
+    suggest: "unquestioned belief",
+  },
+  {
+    pattern: /\bscapegoat(ed|ing|s)?\b/gi,
+    phrase: "scapegoat",
+    suggest: "blame target",
+  },
+  {
+    pattern: /\brat\s+race\b/gi,
+    phrase: "rat race",
+    suggest: "daily grind",
+  },
+  {
+    pattern: /\bdead[\s_-]?cat[\s_-]?bounce\b/gi,
+    phrase: "dead cat bounce",
+    suggest: "temporary rebound",
+  },
+  {
+    pattern: /\bdog[\s-]eat[\s-]dog\b/gi,
+    phrase: "dog-eat-dog",
+    suggest: "ruthlessly competitive",
+  },
+  {
+    pattern: /\bwhack[\s-]a[\s-]mole\b/gi,
+    phrase: "whack-a-mole",
+    suggest: "recurring problem",
+  },
+  {
+    pattern: /\bkill\s+(the\s+)?process\b/gi,
+    phrase: "kill process",
+    suggest: "terminate the process",
+  },
+  {
+    pattern: /\bkill\s+(the\s+)?server\b/gi,
+    phrase: "kill the server",
+    suggest: "stop the server",
+  },
+  {
+    pattern: /\bnuke\s+(it|the|this|that|everything)\b/gi,
+    phrase: "nuke",
+    suggest: "delete completely",
+  },
+  {
+    pattern: /\babort(ed|ing)?\b/gi,
+    phrase: "abort",
+    suggest: "cancel",
+  },
+  {
+    pattern: /\b(master|slave)\b/gi,
+    phrase: "master/slave",
+    suggest: "primary/replica",
+  },
+  {
+    pattern: /\b(white|black)list\b/gi,
+    phrase: "whitelist/blacklist",
+    suggest: "allowlist/denylist",
+  },
+  {
+    pattern: /\bgrandfather(ed|ing)?\b/gi,
+    phrase: "grandfathered",
+    suggest: "legacy",
   },
 ];
 
@@ -109,17 +230,17 @@ const SEVERITY_MAP = {
 };
 
 /** The unique diagnostic source identifier shown in the Problems panel. */
-const DIAGNOSTIC_SOURCE = "Speciesist Language Scanner";
+const DIAGNOSTIC_SOURCE = "Animal Violence Language Scanner";
 
 /** Code used to link diagnostics to their quick-fix code actions. */
-const DIAGNOSTIC_CODE = "speciesism";
+const DIAGNOSTIC_CODE = "animal-violence";
 
 /**
  * Scan a TextDocument and return an array of Diagnostics for every
- * speciesist phrase found.
+ * animal-violence phrase found.
  */
 function scanDocument(document) {
-  const config = vscode.workspace.getConfiguration("speciesism");
+  const config = vscode.workspace.getConfiguration("noAnimalViolence");
 
   if (!config.get("enable", true)) {
     return [];
@@ -144,7 +265,7 @@ function scanDocument(document) {
 
       const diag = new vscode.Diagnostic(
         range,
-        `Speciesist language: "${entry.phrase}". Consider: "${entry.suggest}" (speciesism)`,
+        `Animal violence language: "${entry.phrase}". Consider: "${entry.suggest}"`,
         severity
       );
       diag.source = DIAGNOSTIC_SOURCE;
@@ -162,9 +283,9 @@ function scanDocument(document) {
 
 /**
  * CodeActionProvider that offers quick-fix replacements for every
- * speciesist-language diagnostic in the current selection / range.
+ * animal-violence-language diagnostic in the current selection / range.
  */
-class SpeciesismCodeActionProvider {
+class NoAnimalViolenceCodeActionProvider {
   provideCodeActions(document, range, context) {
     const actions = [];
 
@@ -233,12 +354,12 @@ function scheduleScan(document) {
  */
 function activate(context) {
   diagnosticCollection =
-    vscode.languages.createDiagnosticCollection("speciesism");
+    vscode.languages.createDiagnosticCollection("noAnimalViolence");
 
   // Register the code-action provider for all languages.
   const codeActionProvider = vscode.languages.registerCodeActionsProvider(
     { scheme: "file", language: "*" },
-    new SpeciesismCodeActionProvider(),
+    new NoAnimalViolenceCodeActionProvider(),
     { providedCodeActionKinds: [vscode.CodeActionKind.QuickFix] }
   );
 
@@ -273,7 +394,7 @@ function activate(context) {
 
   // Re-scan when configuration changes.
   const onConfig = vscode.workspace.onDidChangeConfiguration((event) => {
-    if (event.affectsConfiguration("speciesism")) {
+    if (event.affectsConfiguration("noAnimalViolence")) {
       // Re-scan all visible editors.
       for (const editor of vscode.window.visibleTextEditors) {
         if (diagnosticCollection) {

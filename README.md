@@ -1,4 +1,4 @@
-# Speciesist Language Scanner
+# No Animal Violence — VS Code Extension
 
 A VS Code extension that detects speciesist language in code comments, strings, and documentation -- and offers one-click replacements with clearer, non-violent alternatives.
 
@@ -31,17 +31,17 @@ For example, typing `// TODO: don't beat a dead horse` will produce a warning wi
 
 ## Configuration
 
-| Setting               | Type    | Default     | Description                                    |
-|-----------------------|---------|-------------|------------------------------------------------|
-| `speciesism.enable`   | boolean | `true`      | Enable or disable scanning                     |
-| `speciesism.severity` | string  | `"warning"` | Diagnostic severity: `error`, `warning`, `information`, or `hint` |
+| Setting                          | Type    | Default     | Description                                    |
+|----------------------------------|---------|-------------|------------------------------------------------|
+| `noAnimalViolence.enable`        | boolean | `true`      | Enable or disable scanning                     |
+| `noAnimalViolence.severity`      | string  | `"warning"` | Diagnostic severity: `error`, `warning`, `information`, or `hint` |
 
 You can set these in your `settings.json`:
 
 ```json
 {
-  "speciesism.severity": "information",
-  "speciesism.enable": true
+  "noAnimalViolence.severity": "information",
+  "noAnimalViolence.enable": true
 }
 ```
 
@@ -81,7 +81,7 @@ Replacing them costs nothing. The alternatives are often more precise. And the a
 
 ## Contributing
 
-Issues and PRs are welcome at [Open-Paws/vscode-speciesism](https://github.com/Open-Paws/vscode-speciesism). If you know of speciesist phrases that should be added to the scanner, open an issue with the phrase, its origin, and a suggested alternative.
+Issues and PRs are welcome at [Open-Paws/vscode-no-animal-violence](https://github.com/Open-Paws/vscode-no-animal-violence). If you know of speciesist phrases that should be added to the scanner, open an issue with the phrase, its origin, and a suggested alternative.
 
 ## License
 
