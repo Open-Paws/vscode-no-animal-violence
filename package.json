@@ -1,13 +1,15 @@
 {
-  "name": "vscode-speciesism",
-  "displayName": "Speciesist Language Scanner",
-  "description": "Detects speciesist language in code and documentation, suggesting clearer alternatives",
+  "name": "vscode-no-animal-violence",
+  "displayName": "Animal Violence Language Scanner",
+  "description": "Detects animal violence language in code and documentation, suggesting clearer alternatives",
   "version": "0.1.0",
   "publisher": "open-paws",
   "repository": {
     "type": "git",
-    "url": "https://github.com/Open-Paws/vscode-speciesism"
+    "url": "https://github.com/Open-Paws/vscode-no-animal-violence"
   },
+  "homepage": "https://github.com/Open-Paws/vscode-no-animal-violence",
+  "keywords": ["vscode", "linter", "inclusive-language", "speciesism", "animal-violence"],
   "engines": {
     "vscode": "^1.74.0"
   },
