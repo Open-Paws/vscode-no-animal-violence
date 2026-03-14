@@ -105,6 +105,66 @@ const PATTERNS = [
     suggest: "distraction",
   },
   {
+    pattern: /\bcuriosity\s+killed\s+the\s+cat\b/gi,
+    phrase: "curiosity killed the cat",
+    suggest: "curiosity backfired",
+  },
+  {
+    pattern: /\blike\s+a\s+chicken\s+with\s+(its|their)\s+head\s+cut\s+off\b/gi,
+    phrase: "like a chicken with its head cut off",
+    suggest: "in a panic",
+  },
+  {
+    pattern: /\b(your|their|his|her)\s+goose\s+is\s+cooked\b/gi,
+    phrase: "your goose is cooked",
+    suggest: "you're in trouble",
+  },
+  {
+    pattern: /\bthrow(ing|n)?\s+\w+\s+to\s+the\s+wolves\b/gi,
+    phrase: "throw someone to the wolves",
+    suggest: "abandon to criticism",
+  },
+  {
+    pattern: /\bhook,?\s+line,?\s+and\s+sinker\b/gi,
+    phrase: "hook, line, and sinker",
+    suggest: "completely",
+  },
+  {
+    pattern: /\bclip(ping|ped)?\s+(\w+('s)?\s+)?wings\b/gi,
+    phrase: "clip someone's wings",
+    suggest: "restrict someone's freedom",
+  },
+  {
+    pattern: /\b(the\s+)?straw\s+that\s+broke\s+the\s+camel'?s\s+back\b/gi,
+    phrase: "the straw that broke the camel's back",
+    suggest: "the tipping point",
+  },
+  {
+    pattern: /\bbird\s+in\s+(the|a)\s+hand\s+(is\s+)?worth\s+two\s+in\s+the\s+bush\b/gi,
+    phrase: "a bird in the hand is worth two in the bush",
+    suggest: "a sure thing beats a possibility",
+  },
+  {
+    pattern: /\beat(ing)?\s+crow\b/gi,
+    phrase: "eat crow",
+    suggest: "admit being wrong",
+  },
+  {
+    pattern: /\bfight(ing)?\s+like\s+cats\s+and\s+dogs\b/gi,
+    phrase: "fight like cats and dogs",
+    suggest: "constantly argue",
+  },
+  {
+    pattern: /\btake?(ing|ook)?\s+the\s+bait\b/gi,
+    phrase: "take the bait",
+    suggest: "fall for it",
+  },
+  {
+    pattern: /\bdon'?t\s+count\s+your\s+chickens\b/gi,
+    phrase: "don't count your chickens before they hatch",
+    suggest: "don't assume success prematurely",
+  },
+  {
     pattern: /\bdon'?t\s+be\s+a\s+chicken\b/gi,
     phrase: "don't be a chicken",
     suggest: "don't hesitate",
@@ -123,6 +183,16 @@ const PATTERNS = [
     pattern: /\bcode\s+monkeys?\b/gi,
     phrase: "code monkey",
     suggest: "developer",
+  },
+  {
+    pattern: /\bbadger(ed|ing|s)?\b/gi,
+    phrase: "badger someone",
+    suggest: "pester",
+  },
+  {
+    pattern: /\bferret(ed|ing)?\s+out\b/gi,
+    phrase: "ferret out",
+    suggest: "uncover",
   },
   {
     pattern: /\bcattle\s+(vs?\.?|versus)\s+pets?\b/gi,
@@ -185,6 +255,36 @@ const PATTERNS = [
     suggest: "recurring problem",
   },
   {
+    pattern: /\bcash\s+cows?\b/gi,
+    phrase: "cash cow",
+    suggest: "profit center",
+  },
+  {
+    pattern: /\bsacrificial\s+lambs?\b/gi,
+    phrase: "sacrificial lamb",
+    suggest: "expendable person",
+  },
+  {
+    pattern: /\bsitting\s+ducks?\b/gi,
+    phrase: "sitting duck",
+    suggest: "easy target",
+  },
+  {
+    pattern: /\bopen\s+season\b/gi,
+    phrase: "open season",
+    suggest: "free-for-all",
+  },
+  {
+    pattern: /\bput(ting)?\s+(\w+\s+)?out\s+to\s+pasture\b/gi,
+    phrase: "put out to pasture",
+    suggest: "retire",
+  },
+  {
+    pattern: /\bdead\s+ducks?\b/gi,
+    phrase: "dead duck",
+    suggest: "lost cause",
+  },
+  {
     pattern: /\bkill\s+(the\s+)?process\b/gi,
     phrase: "kill process",
     suggest: "terminate the process",
@@ -203,6 +303,11 @@ const PATTERNS = [
     pattern: /\babort(ed|ing)?\b/gi,
     phrase: "abort",
     suggest: "cancel",
+  },
+  {
+    pattern: /\bcull(ed|ing|s)?\b/gi,
+    phrase: "cull",
+    suggest: "remove",
   },
   {
     pattern: /\b(master|slave)\b/gi,
