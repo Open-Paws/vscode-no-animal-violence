@@ -1,0 +1,9 @@
+.vscode/**
+.vscode-test/**
+.gitignore
+.github/**
+node_modules/**
+test/**
+**/*.test.js
+**/.DS_Store
+*.vsix
