@@ -165,6 +165,56 @@ const PATTERNS = [
     suggest: "don't assume success prematurely",
   },
   {
+    pattern: /\blivestock\b/gi,
+    phrase: "livestock",
+    suggest: "farmed animals",
+  },
+  {
+    pattern: /\bpoultry\b/gi,
+    phrase: "poultry",
+    suggest: "farmed birds",
+  },
+  {
+    pattern: /\bgestation crates?\b/gi,
+    phrase: "gestation crate",
+    suggest: "pregnancy cage",
+  },
+  {
+    pattern: /\bdepopulat(ion|ed|ing)\b/gi,
+    phrase: "depopulation",
+    suggest: "mass killing",
+  },
+  {
+    pattern: /\bprocessing (plants?|facilit(y|ies))\b/gi,
+    phrase: "processing plant",
+    suggest: "slaughterhouse",
+  },
+  {
+    pattern: /\bfarrowing crates?\b/gi,
+    phrase: "farrowing crate",
+    suggest: "birthing cage",
+  },
+  {
+    pattern: /\bbattery cages?\b/gi,
+    phrase: "battery cage",
+    suggest: "small wire cage",
+  },
+  {
+    pattern: /\bspent hens?\b/gi,
+    phrase: "spent hen",
+    suggest: "discarded hen",
+  },
+  {
+    pattern: /\b(humane(ly)? (slaughter(ed)?|kill(ing|ed)))\b/gi,
+    phrase: "humane slaughter",
+    suggest: "slaughter",
+  },
+  {
+    pattern: /\bbroilers?\b/gi,
+    phrase: "broiler",
+    suggest: "chicken raised for meat",
+  },
+  {
     pattern: /\bdon'?t\s+be\s+a\s+chicken\b/gi,
     phrase: "don't be a chicken",
     suggest: "don't hesitate",
