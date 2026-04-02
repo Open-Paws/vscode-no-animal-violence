@@ -1,47 +1,60 @@
 {
-  "name": "vscode-no-animal-violence",
-  "displayName": "Animal Violence Language Scanner",
-  "description": "Detects animal violence language in code and documentation, suggesting clearer alternatives",
-  "version": "0.1.0",
-  "publisher": "open-paws",
-  "repository": {
-    "type": "git",
-    "url": "https://github.com/Open-Paws/vscode-no-animal-violence"
-  },
-  "homepage": "https://github.com/Open-Paws/vscode-no-animal-violence",
-  "keywords": ["vscode", "linter", "inclusive-language", "speciesism", "animal-violence"],
-  "engines": {
-    "vscode": "^1.74.0"
-  },
-  "categories": [
-    "Linters"
-  ],
-  "activationEvents": [
-    "onLanguage:*"
-  ],
-  "main": "./extension.js",
-  "contributes": {
-    "configuration": {
-      "title": "Speciesist Language Scanner",
-      "properties": {
-        "speciesism.severity": {
-          "type": "string",
-          "default": "warning",
-          "enum": [
-            "error",
-            "warning",
-            "information",
-            "hint"
-          ],
-          "description": "Severity level for speciesist language findings"
-        },
-        "speciesism.enable": {
-          "type": "boolean",
-          "default": true,
-          "description": "Enable/disable speciesist language scanning"
-        }
-      }
-    }
-  },
-  "license": "MIT"
+	"name": "vscode-no-animal-violence",
+	"displayName": "Animal Violence Language Scanner",
+	"description": "Detects animal violence language in code and documentation, suggesting clearer alternatives",
+	"version": "0.1.0",
+	"publisher": "open-paws",
+	"repository": {
+		"type": "git",
+		"url": "https://github.com/Open-Paws/vscode-no-animal-violence"
+	},
+	"homepage": "https://github.com/Open-Paws/vscode-no-animal-violence",
+	"keywords": [
+		"vscode",
+		"linter",
+		"inclusive-language",
+		"speciesism",
+		"animal-violence"
+	],
+	"engines": {
+		"vscode": "^1.74.0"
+	},
+	"categories": [
+		"Linters"
+	],
+	"activationEvents": [
+		"onLanguage:*"
+	],
+	"main": "./extension.js",
+	"contributes": {
+		"configuration": {
+			"title": "Speciesist Language Scanner",
+			"properties": {
+				"speciesism.severity": {
+					"type": "string",
+					"default": "warning",
+					"enum": [
+						"error",
+						"warning",
+						"information",
+						"hint"
+					],
+					"description": "Severity level for speciesist language findings"
+				},
+				"speciesism.enable": {
+					"type": "boolean",
+					"default": true,
+					"description": "Enable/disable speciesist language scanning"
+				}
+			}
+		}
+	},
+	"license": "MIT",
+	"scripts": {
+		"lint": "biome check .",
+		"test": "node --test tests/placeholder.test.js"
+	},
+	"devDependencies": {
+		"@biomejs/biome": "^2.4.10"
+	}
 }
