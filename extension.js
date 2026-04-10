@@ -411,8 +411,8 @@ function scanDocument(document) {
 		// Reset lastIndex — RegExp objects with the `g` flag are stateful.
 		entry.pattern.lastIndex = 0;
 
-		let match;
-		while ((match = entry.pattern.exec(text)) !== null) {
+		let match = entry.pattern.exec(text);
+		while (match !== null) {
 			const startPos = document.positionAt(match.index);
 			const endPos = document.positionAt(match.index + match[0].length);
 			const range = new vscode.Range(startPos, endPos);
@@ -429,6 +429,7 @@ function scanDocument(document) {
 			diag._suggestion = entry.suggest;
 
 			diagnostics.push(diag);
+			match = entry.pattern.exec(text);
 		}
 	}
 
