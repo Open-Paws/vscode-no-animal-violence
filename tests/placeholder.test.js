@@ -1,38 +1,91 @@
 /**
- * Placeholder tests for the VS Code extension pattern dictionary.
+ * Tests for the VS Code extension.
  *
  * The extension requires the `vscode` runtime which is only available inside
- * an Extension Development Host. These tests exercise the pattern-matching
- * logic directly, without loading the full extension, by extracting the
- * PATTERNS array via module mock injection.
+ * an Extension Development Host. These tests exercise the extension module
+ * directly by stubbing the vscode API.
  */
 
 const assert = require("node:assert/strict");
 const { test } = require("node:test");
 const Module = require("node:module");
 
-// Stub the vscode module so the extension file can be required outside VS Code.
+// Stub the vscode module so extension.js can be required outside VS Code.
+const noop = () => ({ dispose: () => {} });
+const vscodeStub = {
+	DiagnosticSeverity: { Warning: 1, Error: 0, Information: 2, Hint: 3 },
+	Diagnostic: class {
+		constructor(range, message, severity) {
+			this.range = range;
+			this.message = message;
+			this.severity = severity;
+		}
+	},
+	Range: class {
+		constructor(start, end) { this.start = start; this.end = end; }
+	},
+	Position: class {
+		constructor(line, character) { this.line = line; this.character = character; }
+	},
+	CodeAction: class {
+		constructor(title, kind) { this.title = title; this.kind = kind; }
+	},
+	CodeActionKind: { QuickFix: "quickfix" },
+	WorkspaceEdit: class {
+		replace() {}
+	},
+	languages: {
+		createDiagnosticCollection: () => ({
+			set: () => {},
+			clear: () => {},
+			dispose: () => {},
+		}),
+		registerCodeActionsProvider: () => ({ dispose: () => {} }),
+	},
+	workspace: {
+		onDidOpenTextDocument: noop,
+		onDidChangeTextDocument: noop,
+		onDidSaveTextDocument: noop,
+		onDidCloseTextDocument: noop,
+		onDidChangeConfiguration: noop,
+		getConfiguration: () => ({ get: (_key, def) => def }),
+		visibleTextEditors: [],
+	},
+	window: {
+		activeTextEditor: null,
+		onDidChangeActiveTextEditor: noop,
+		visibleTextEditors: [],
+	},
+};
+
 const originalLoad = Module._load;
 Module._load = function (request, parent, isMain) {
 	if (request === "vscode") {
-		return {
-			languages: { createDiagnosticCollection: () => ({}) },
-			workspace: { onDidChangeTextDocument: () => ({}) },
-			window: { onDidChangeActiveTextEditor: () => ({}) },
-			DiagnosticSeverity: { Warning: 1, Error: 0 },
-			Diagnostic: class {},
-			Range: class {},
-			Position: class {},
-			CodeAction: class {},
-			CodeActionKind: { QuickFix: "quickfix" },
-		};
+		return vscodeStub;
 	}
 	return originalLoad.call(this, request, parent, isMain);
 };
 
 // Load the extension after the stub is in place.
-// PATTERNS is not exported, so we verify its structure via package.json instead.
+const extension = require("../extension.js");
 const pkg = require("../package.json");
+
+test("extension exports activate function", () => {
+	assert.equal(typeof extension.activate, "function", "extension must export activate()");
+});
+
+test("extension exports deactivate function", () => {
+	assert.equal(typeof extension.deactivate, "function", "extension must export deactivate()");
+});
+
+test("extension activates without throwing", () => {
+	const context = { subscriptions: [] };
+	assert.doesNotThrow(() => extension.activate(context), "activate() must not throw");
+});
+
+test("extension deactivates without throwing", () => {
+	assert.doesNotThrow(() => extension.deactivate(), "deactivate() must not throw");
+});
 
 test("package.json declares a main entry point", () => {
 	assert.ok(pkg.main, "package.json must declare a main entry point");
