@@ -22,13 +22,22 @@ const vscodeStub = {
 		}
 	},
 	Range: class {
-		constructor(start, end) { this.start = start; this.end = end; }
+		constructor(start, end) {
+			this.start = start;
+			this.end = end;
+		}
 	},
 	Position: class {
-		constructor(line, character) { this.line = line; this.character = character; }
+		constructor(line, character) {
+			this.line = line;
+			this.character = character;
+		}
 	},
 	CodeAction: class {
-		constructor(title, kind) { this.title = title; this.kind = kind; }
+		constructor(title, kind) {
+			this.title = title;
+			this.kind = kind;
+		}
 	},
 	CodeActionKind: { QuickFix: "quickfix" },
 	WorkspaceEdit: class {
