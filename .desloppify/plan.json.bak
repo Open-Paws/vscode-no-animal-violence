@@ -1,0 +1,295 @@
+{
+  "version": 8,
+  "created": "2026-04-12T07:35:52+00:00",
+  "updated": "2026-04-12T09:25:59+00:00",
+  "queue_order": [
+    "workflow::create-plan"
+  ],
+  "deferred": [],
+  "skipped": {},
+  "active_cluster": null,
+  "overrides": {
+    "advocacy_language::.claude/rules/advocacy-domain.md::kill two birds with one stone": {
+      "issue_id": "advocacy_language::.claude/rules/advocacy-domain.md::kill two birds with one stone",
+      "created_at": "2026-04-12T09:22:47+00:00",
+      "cluster": null,
+      "updated_at": "2026-04-12T09:25:59+00:00"
+    },
+    "advocacy_language::.claude/rules/advocacy-domain.md::beat a dead horse": {
+      "issue_id": "advocacy_language::.claude/rules/advocacy-domain.md::beat a dead horse",
+      "created_at": "2026-04-12T09:22:47+00:00",
+      "cluster": null,
+      "updated_at": "2026-04-12T09:25:59+00:00"
+    },
+    "advocacy_language::.claude/rules/advocacy-domain.md::more than one way to skin a cat": {
+      "issue_id": "advocacy_language::.claude/rules/advocacy-domain.md::more than one way to skin a cat",
+      "created_at": "2026-04-12T09:22:47+00:00",
+      "cluster": null,
+      "updated_at": "2026-04-12T09:25:59+00:00"
+    },
+    "advocacy_language::.claude/rules/advocacy-domain.md::guinea pig": {
+      "issue_id": "advocacy_language::.claude/rules/advocacy-domain.md::guinea pig",
+      "created_at": "2026-04-12T09:22:47+00:00",
+      "cluster": null,
+      "updated_at": "2026-04-12T09:25:59+00:00"
+    },
+    "advocacy_language::.claude/rules/advocacy-domain.md::open a can of worms": {
+      "issue_id": "advocacy_language::.claude/rules/advocacy-domain.md::open a can of worms",
+      "created_at": "2026-04-12T09:22:47+00:00",
+      "cluster": null,
+      "updated_at": "2026-04-12T09:25:59+00:00"
+    },
+    "advocacy_language::.claude/rules/advocacy-domain.md::wild goose chase": {
+      "issue_id": "advocacy_language::.claude/rules/advocacy-domain.md::wild goose chase",
+      "created_at": "2026-04-12T09:22:47+00:00",
+      "cluster": null,
+      "updated_at": "2026-04-12T09:25:59+00:00"
+    },
+    "advocacy_language::.claude/rules/advocacy-domain.md::cattle vs. pets": {
+      "issue_id": "advocacy_language::.claude/rules/advocacy-domain.md::cattle vs. pets",
+      "created_at": "2026-04-12T09:22:47+00:00",
+      "cluster": null,
+      "updated_at": "2026-04-12T09:25:59+00:00"
+    },
+    "advocacy_language::.claude/rules/advocacy-domain.md::pet project": {
+      "issue_id": "advocacy_language::.claude/rules/advocacy-domain.md::pet project",
+      "created_at": "2026-04-12T09:22:47+00:00",
+      "cluster": null,
+      "updated_at": "2026-04-12T09:25:59+00:00"
+    },
+    "advocacy_language::.claude/rules/advocacy-domain.md::master/slave": {
+      "issue_id": "advocacy_language::.claude/rules/advocacy-domain.md::master/slave",
+      "created_at": "2026-04-12T09:22:47+00:00",
+      "cluster": null,
+      "updated_at": "2026-04-12T09:25:59+00:00"
+    },
+    "advocacy_language::.claude/rules/advocacy-domain.md::whitelist/blacklist": {
+      "issue_id": "advocacy_language::.claude/rules/advocacy-domain.md::whitelist/blacklist",
+      "created_at": "2026-04-12T09:22:47+00:00",
+      "cluster": null,
+      "updated_at": "2026-04-12T09:25:59+00:00"
+    },
+    "advocacy_language::.claude/rules/advocacy-domain.md::grandfathered": {
+      "issue_id": "advocacy_language::.claude/rules/advocacy-domain.md::grandfathered",
+      "created_at": "2026-04-12T09:22:47+00:00",
+      "cluster": null,
+      "updated_at": "2026-04-12T09:25:59+00:00"
+    },
+    "advocacy_language::.claude/skills/security-audit/SKILL.md::kill process": {
+      "issue_id": "advocacy_language::.claude/skills/security-audit/SKILL.md::kill process",
+      "created_at": "2026-04-12T09:22:47+00:00",
+      "cluster": null,
+      "updated_at": "2026-04-12T09:25:59+00:00"
+    }
+  },
+  "clusters": {},
+  "superseded": {},
+  "promoted_ids": [],
+  "plan_start_scores": {
+    "strict": 84.5,
+    "overall": 84.5,
+    "objective": 98.2,
+    "verified": 98.2
+  },
+  "refresh_state": {
+    "_subjective_migration_pruned": true,
+    "lifecycle_phase": "plan",
+    "postflight_scan_completed_at_scan_count": 18
+  },
+  "execution_log": [
+    {
+      "timestamp": "2026-04-12T07:35:52+00:00",
+      "action": "sync_communicate_score",
+      "issue_ids": [],
+      "cluster_name": null,
+      "actor": "system",
+      "note": null,
+      "detail": {
+        "auto_resolved": true
+      }
+    },
+    {
+      "timestamp": "2026-04-12T07:35:52+00:00",
+      "action": "sync_lifecycle_phase",
+      "issue_ids": [],
+      "cluster_name": null,
+      "actor": "system",
+      "note": null,
+      "detail": {
+        "phase": "scan"
+      }
+    },
+    {
+      "timestamp": "2026-04-12T07:35:52+00:00",
+      "action": "seed_start_scores",
+      "issue_ids": [],
+      "cluster_name": null,
+      "actor": "system",
+      "note": null,
+      "detail": {}
+    },
+    {
+      "timestamp": "2026-04-12T07:35:52+00:00",
+      "action": "complete_postflight_scan",
+      "issue_ids": [],
+      "cluster_name": null,
+      "actor": "system",
+      "note": null,
+      "detail": {
+        "scan_count": 1
+      }
+    },
+    {
+      "timestamp": "2026-04-12T09:12:07+00:00",
+      "action": "done",
+      "issue_ids": [
+        "test_coverage::extension.js::untested_module"
+      ],
+      "cluster_name": null,
+      "actor": "user",
+      "note": "tests/placeholder.test.js imports extension.js directly (with vscode stub), tests activate() and deactivate() exports and invocation",
+      "detail": {}
+    },
+    {
+      "timestamp": "2026-04-12T09:22:02+00:00",
+      "action": "sync_create_plan",
+      "issue_ids": [],
+      "cluster_name": null,
+      "actor": "system",
+      "note": null,
+      "detail": {
+        "injected": true
+      }
+    },
+    {
+      "timestamp": "2026-04-12T09:22:02+00:00",
+      "action": "clear_start_scores",
+      "issue_ids": [],
+      "cluster_name": null,
+      "actor": "system",
+      "note": null,
+      "detail": {}
+    },
+    {
+      "timestamp": "2026-04-12T09:22:02+00:00",
+      "action": "complete_postflight_scan",
+      "issue_ids": [],
+      "cluster_name": null,
+      "actor": "system",
+      "note": null,
+      "detail": {
+        "scan_count": 15
+      }
+    },
+    {
+      "timestamp": "2026-04-12T09:22:47+00:00",
+      "action": "auto_cluster",
+      "issue_ids": [],
+      "cluster_name": null,
+      "actor": "system",
+      "note": null,
+      "detail": {
+        "changes": true
+      }
+    },
+    {
+      "timestamp": "2026-04-12T09:22:47+00:00",
+      "action": "sync_communicate_score",
+      "issue_ids": [],
+      "cluster_name": null,
+      "actor": "system",
+      "note": null,
+      "detail": {
+        "auto_resolved": true
+      }
+    },
+    {
+      "timestamp": "2026-04-12T09:22:47+00:00",
+      "action": "seed_start_scores",
+      "issue_ids": [],
+      "cluster_name": null,
+      "actor": "system",
+      "note": null,
+      "detail": {}
+    },
+    {
+      "timestamp": "2026-04-12T09:22:47+00:00",
+      "action": "complete_postflight_scan",
+      "issue_ids": [],
+      "cluster_name": null,
+      "actor": "system",
+      "note": null,
+      "detail": {
+        "scan_count": 16
+      }
+    },
+    {
+      "timestamp": "2026-04-12T09:23:58+00:00",
+      "action": "clear_start_scores",
+      "issue_ids": [],
+      "cluster_name": null,
+      "actor": "system",
+      "note": null,
+      "detail": {}
+    },
+    {
+      "timestamp": "2026-04-12T09:23:58+00:00",
+      "action": "complete_postflight_scan",
+      "issue_ids": [],
+      "cluster_name": null,
+      "actor": "system",
+      "note": null,
+      "detail": {
+        "scan_count": 17
+      }
+    },
+    {
+      "timestamp": "2026-04-12T09:25:59+00:00",
+      "action": "auto_cluster",
+      "issue_ids": [],
+      "cluster_name": null,
+      "actor": "system",
+      "note": null,
+      "detail": {
+        "changes": true
+      }
+    },
+    {
+      "timestamp": "2026-04-12T09:25:59+00:00",
+      "action": "sync_communicate_score",
+      "issue_ids": [],
+      "cluster_name": null,
+      "actor": "system",
+      "note": null,
+      "detail": {
+        "auto_resolved": true
+      }
+    },
+    {
+      "timestamp": "2026-04-12T09:25:59+00:00",
+      "action": "seed_start_scores",
+      "issue_ids": [],
+      "cluster_name": null,
+      "actor": "system",
+      "note": null,
+      "detail": {}
+    },
+    {
+      "timestamp": "2026-04-12T09:25:59+00:00",
+      "action": "complete_postflight_scan",
+      "issue_ids": [],
+      "cluster_name": null,
+      "actor": "system",
+      "note": null,
+      "detail": {
+        "scan_count": 18
+      }
+    }
+  ],
+  "epic_triage_meta": {},
+  "commit_log": [],
+  "uncommitted_issues": [],
+  "commit_tracking_branch": null,
+  "scan_count_at_plan_start": 18,
+  "previous_plan_start_scores": {}
+}
