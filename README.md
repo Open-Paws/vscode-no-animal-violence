@@ -4,6 +4,7 @@
 [![VS Marketplace Installs](https://img.shields.io/visual-studio-marketplace/i/open-paws.vscode-no-animal-violence)](https://marketplace.visualstudio.com/items?itemName=open-paws.vscode-no-animal-violence)
 [![License: MIT](https://img.shields.io/badge/license-MIT-green)](LICENSE)
 [![Last Commit](https://img.shields.io/github/last-commit/Open-Paws/vscode-no-animal-violence)](https://github.com/Open-Paws/vscode-no-animal-violence/commits/main)
+[![desloppify score](https://img.shields.io/badge/desloppify-92.2%2F100-brightgreen)](scorecard.png)
 
 A VS Code extension that detects speciesist language in code, comments, and documentation in real time — and offers one-click Quick Fix replacements with clearer alternatives. It covers 65+ patterns: idioms that trivialize animal harm, industry euphemisms (e.g. "processing plant", "livestock"), and developer-specific terms (e.g. "cattle vs. pets", "dogfooding"). It is the IDE-level layer of a suite that enforces the same canonical rule dictionary across pre-commit hooks, CI, ESLint, PR review automation, and AI agent runtimes.
 
@@ -124,6 +125,10 @@ Single-file, no-build architecture — the entire extension is `extension.js` wi
 **No external runtime dependencies.** Dev dependency: `@biomejs/biome` for linting.
 
 </details>
+
+## Code Quality
+
+<img src="scorecard.png" width="100%">
 
 ## Contributing
 
