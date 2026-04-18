@@ -54,12 +54,12 @@ jobs:
             exit 1
           fi
           echo "Objective score: ${SCORE}/100 (threshold ${THRESHOLD})"
-          RESULT=$(python3 -c "
+          RESULT=$(SCORE="${SCORE}" THRESHOLD="${THRESHOLD}" python3 -c '
           import os
-          score = float(os.environ['SCORE'])
-          threshold = float(os.environ['THRESHOLD'])
-          print('PASS' if score >= threshold else 'FAIL')
-          " SCORE="${SCORE}")
+          score = float(os.environ["SCORE"])
+          threshold = float(os.environ["THRESHOLD"])
+          print("PASS" if score >= threshold else "FAIL")
+          ')
           {
             echo "## Desloppify Quality Gate"
             echo ""
