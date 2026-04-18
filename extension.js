@@ -369,6 +369,11 @@ const PATTERNS = [
 			phrase: "veal",
 			suggest: "calf flesh",
 		},
+		{
+			pattern: /\\blame[\s-]duck\\b/gi,
+			phrase: "lame duck",
+			suggest: "outgoing",
+		},
 ];
 
 /**
