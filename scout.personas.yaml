@@ -1,0 +1,149 @@
+version: "1"
+interaction: extension
+# VS Code extension that detects speciesist language in real time and offers one-click Quick Fix replacements
+
+personas:
+  - id: clean-file-developer
+    name: Developer with a Clean TypeScript File
+    description: >
+      A contributor opening a TypeScript source file that contains no speciesist
+      phrases — only standard code, comments, and variable names. They want to
+      confirm the extension is active and silent when there is nothing to flag.
+    environment:
+      runtime: vscode@latest
+      os: any
+    flows:
+      - id: open-clean-ts-file
+        name: Open clean TypeScript file and check Problems panel
+        steps:
+          - run: Install the "Animal Violence Language Scanner" extension (open-paws.vscode-no-animal-violence) from the VS Marketplace or via VSIX.
+          - run: Open a TypeScript file whose source, comments, and string literals contain no speciesist patterns (e.g. a file with only `export function add(a: number, b: number): number { return a + b; }`).
+          - run: Wait for the extension to activate (activation event is onLanguage:*, so it fires immediately on file open).
+          - run: Open the Problems panel with Ctrl+Shift+M and inspect the entry list for the open file.
+        expected_outcome: >
+          The Problems panel shows zero diagnostics for the file. No squiggly
+          underlines appear in the editor. The extension is active and silent.
+    assertions:
+      succeeds:
+        - clean TypeScript file shows zero diagnostics in the Problems panel
+        - no squiggly underlines appear in the editor gutter or inline
+      fails_gracefully:
+        - extension activates without throwing errors or degrading editor performance
+      output_contains: []
+
+  - id: comments-with-idioms-developer
+    name: Developer Opening a File with Speciesist Idioms in Comments
+    description: >
+      A developer working on advocacy tooling who opens a JavaScript or Markdown
+      file that contains speciesist idioms embedded in code comments and inline
+      documentation — phrases such as "beat a dead horse", "kill two birds with
+      one stone", and "cattle vs. pets" that the extension's pattern dictionary
+      covers. They need to see that violations are flagged immediately with clear
+      suggested alternatives.
+    environment:
+      runtime: vscode@latest
+      os: any
+    flows:
+      - id: open-file-with-idioms
+        name: Open file containing speciesist idioms and verify diagnostics
+        steps:
+          - run: Open a JavaScript file containing comments with flagged phrases, for example — `// TODO: don't beat a dead horse here` and `// We use cattle vs. pets for ephemeral containers`.
+          - run: Allow the extension's 300 ms debounce scan to complete (or save the file to trigger an immediate rescan).
+          - run: Observe the editor for squiggly underlines on the flagged phrases.
+          - run: Open the Problems panel with Ctrl+Shift+M and read the diagnostic messages.
+        expected_outcome: >
+          Each speciesist phrase is underlined with a warning-severity squiggly
+          line. The Problems panel shows one entry per match. Each entry reads in
+          the form: "Animal violence language: \"<phrase>\". Consider:
+          \"<suggested alternative>\"". For example: "Animal violence language:
+          \"beat a dead horse\". Consider: \"belabor the point\"".
+    assertions:
+      succeeds:
+        - squiggly underline appears on each flagged phrase in the editor
+        - Problems panel lists one diagnostic entry per matched pattern
+      fails_gracefully:
+        - file with multiple violations shows all violations, not just the first
+      output_contains:
+        - 'Animal violence language: "beat a dead horse". Consider: "belabor the point"'
+        - 'Animal violence language: "cattle vs. pets". Consider: "ephemeral vs. persistent"'
+
+  - id: quick-fix-developer
+    name: Developer Using the Quick Fix Action to Replace a Flagged Phrase
+    description: >
+      A developer who has spotted a diagnostic warning on a flagged phrase and
+      wants to apply the one-click Quick Fix replacement. They rely on the
+      extension's preferred code action to substitute the speciesist phrase with
+      the suggested alternative while preserving the original casing.
+    environment:
+      runtime: vscode@latest
+      os: any
+    flows:
+      - id: apply-quick-fix
+        name: Apply Quick Fix replacement for a flagged idiom
+        steps:
+          - run: Open a file containing the phrase "Kill two birds with one stone" (uppercase K) in a comment or string.
+          - run: Wait for the diagnostic warning squiggly underline to appear on the phrase.
+          - run: Place the cursor anywhere within the underlined phrase.
+          - run: Press Ctrl+. (Windows/Linux) or Cmd+. (macOS) to open the Quick Fix lightbulb menu.
+          - run: Confirm the action "Replace with: 'Accomplish two things at once'" (or equivalent suggested alternative) is listed and marked as the preferred fix.
+          - run: Press Enter to apply the preferred fix.
+          - run: Inspect the edited text and confirm the replacement was applied with the original leading uppercase preserved.
+          - run: Verify the diagnostic entry for that phrase is no longer present in the Problems panel.
+        expected_outcome: >
+          The phrase "Kill two birds with one stone" is replaced with the
+          capitalized form of the suggested alternative (e.g. "Accomplish two
+          things at once"). The squiggly underline and Problems panel entry for
+          that phrase are removed. No other text in the file is altered.
+    assertions:
+      succeeds:
+        - Quick Fix action appears in the lightbulb menu for the flagged phrase
+        - applying the fix replaces only the matched phrase, preserving surrounding text
+        - replacement preserves the leading-uppercase casing of the original phrase
+        - the diagnostic is cleared after the fix is applied
+      fails_gracefully:
+        - pressing Ctrl+. on a line with no diagnostic shows no irrelevant actions from this extension
+      output_contains:
+        - Accomplish two things at once
+
+  - id: unsupported-filetype-developer
+    name: Developer Opening a File Type the Extension Does Not Cover
+    description: >
+      A developer opens a compiled binary or an image file in VS Code to confirm
+      the extension does not activate on non-text content and does not produce
+      false diagnostics. Because the extension uses onLanguage:* as its
+      activation event and scans raw document text, the key validation is that
+      binary or unrecognized content does not cause errors or spurious warnings.
+      A second check uses a plain-text file with no speciesist content to confirm
+      the extension scans but stays silent.
+    environment:
+      runtime: vscode@latest
+      os: any
+    flows:
+      - id: open-binary-file
+        name: Open a PNG image file and verify no diagnostics are produced
+        steps:
+          - run: Open a PNG or JPEG image file in VS Code (VS Code will show it in the image preview editor, not as a text document).
+          - run: Open the Problems panel with Ctrl+Shift+M.
+          - run: Check whether any diagnostics from the "Animal Violence Language Scanner" extension appear for the image file.
+        expected_outcome: >
+          No diagnostics from this extension appear for the image file. The
+          extension does not throw errors or interfere with VS Code's image
+          preview. The Problems panel is either empty or shows only unrelated
+          entries from other extensions.
+      - id: open-clean-yaml-file
+        name: Open a YAML config file with no speciesist content
+        steps:
+          - run: Open a YAML file containing only infrastructure configuration keys and values — no speciesist phrases (e.g. a Kubernetes deployment manifest with standard field names).
+          - run: Allow the scan to complete.
+          - run: Inspect the Problems panel and editor for diagnostics from this extension.
+        expected_outcome: >
+          No diagnostics are produced. The extension scans the YAML document
+          (because onLanguage:* covers all text files) but finds no pattern
+          matches and remains silent.
+    assertions:
+      succeeds:
+        - no diagnostics appear for binary files opened in the image preview editor
+        - a clean YAML or config file produces zero diagnostics from this extension
+      fails_gracefully:
+        - extension does not crash or produce error notifications when non-text editors are active
+      output_contains: []
