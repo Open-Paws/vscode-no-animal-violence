@@ -1110,6 +1110,34 @@ const PATTERNS = [
 			alternatives: "\"live with a companion animal\" or \"share a home with\" or \"care for a\"",
 			reason: "Property framing applied to companion animals. 'Live with a dog' or 'share a home with a cat' captures the relationship without the ownership frame.",
 		},
+		{
+			pattern: /(fish|shrimp|salmon|tilapia)\s+harvest(ing)?/gi,
+			phrase: "fish harvest",
+			suggest: "fish slaughter",
+			alternatives: "\"fish slaughter\" or \"shrimp slaughter\" or \"salmon slaughter\"",
+			reason: "Aquaculture euphemism for killing/slaughtering farmed fish/shrimp. 'Harvest' obscures the mass killing at the end of the grow-out phase.",
+		},
+		{
+			pattern: /stocking\s+density(ies)?/gi,
+			phrase: "stocking density",
+			suggest: "crowding density",
+			alternatives: "\"crowding density\" or \"confinement density\"",
+			reason: "Industry term for extreme overcrowding in aquaculture tanks/ponds/net pens, where fish are packed at densities causing stress, disease, and cannibalism.",
+		},
+		{
+			pattern: /(harvest|market)\s+size|slaughter\s+weight/gi,
+			phrase: "harvest size",
+			suggest: "slaughter size",
+			alternatives: "\"slaughter size\" or \"killing weight\"",
+			reason: "Euphemism for the size/weight at which farmed fish/shrimp are killed ('harvested').",
+		},
+		{
+			pattern: /grow-out\s+(pond|tank|phase)/gi,
+			phrase: "grow-out pond",
+			suggest: "fattening pond",
+			alternatives: "\"fattening pond\" or \"fattening tank\"",
+			reason: "Final fattening phase before slaughter in aquaculture.",
+		},
 ];
 
 /**
