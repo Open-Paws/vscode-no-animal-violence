@@ -1118,14 +1118,14 @@ const PATTERNS = [
 			reason: "Aquaculture euphemism for killing/slaughtering farmed fish/shrimp. 'Harvest' obscures the mass killing at the end of the grow-out phase.",
 		},
 		{
-			pattern: /stocking\s+density(ies)?/gi,
+			pattern: /\bstocking\s+densit(?:y|ies)\b/gi,
 			phrase: "stocking density",
 			suggest: "crowding density",
 			alternatives: "\"crowding density\" or \"confinement density\"",
 			reason: "Industry term for extreme overcrowding in aquaculture tanks/ponds/net pens, where fish are packed at densities causing stress, disease, and cannibalism.",
 		},
 		{
-			pattern: /(harvest|market)\s+size|slaughter\s+weight/gi,
+			pattern: /\b(?:fish|shrimp|salmon|tilapia)\s+(?:harvest|market)\s+size\b|\bslaughter\s+weight\b|\bharvest\s+size\b/gi,
 			phrase: "harvest size",
 			suggest: "slaughter size",
 			alternatives: "\"slaughter size\" or \"killing weight\"",
