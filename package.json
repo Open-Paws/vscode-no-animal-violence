@@ -28,9 +28,9 @@
 	"main": "./extension.js",
 	"contributes": {
 		"configuration": {
-			"title": "Speciesist Language Scanner",
+			"title": "Animal Violence Language Scanner",
 			"properties": {
-				"speciesism.severity": {
+				"no-animal-violence.severity": {
 					"type": "string",
 					"default": "warning",
 					"enum": [
@@ -39,12 +39,12 @@
 						"information",
 						"hint"
 					],
-					"description": "Severity level for speciesist language findings"
+					"description": "Severity level for animal-violence language findings"
 				},
-				"speciesism.enable": {
+				"no-animal-violence.enable": {
 					"type": "boolean",
 					"default": true,
-					"description": "Enable/disable speciesist language scanning"
+					"description": "Enable/disable animal-violence language scanning"
 				}
 			}
 		}
