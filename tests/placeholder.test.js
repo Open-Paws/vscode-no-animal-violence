@@ -105,8 +105,14 @@ test("package.json declares vscode engine requirement", () => {
 	assert.ok(pkg.engines?.vscode, "package.json must declare a vscode engine requirement");
 });
 
-test("package.json declares speciesism.enable configuration", () => {
+test("package.json declares no-animal-violence.enable configuration", () => {
 	const props = pkg.contributes?.configuration?.properties;
 	assert.ok(props, "package.json must declare configuration properties");
-	assert.ok(props["speciesism.enable"], "must declare speciesism.enable configuration key");
+	assert.ok(
+		props["no-animal-violence.enable"],
+		"must declare no-animal-violence.enable configuration key (matches diagnostic-collection name and diagnostic.source)",
+	);
+	assert.ok(props["no-animal-violence.severity"], "must declare no-animal-violence.severity configuration key");
+	assert.equal(props["speciesism.enable"], undefined, "must NOT retain the legacy speciesism.* namespace");
+	assert.equal(props["speciesism.severity"], undefined, "must NOT retain the legacy speciesism.* namespace");
 });
