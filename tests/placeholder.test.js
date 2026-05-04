@@ -112,18 +112,7 @@ test("package.json declares no-animal-violence.enable configuration", () => {
 		props["no-animal-violence.enable"],
 		"must declare no-animal-violence.enable configuration key (matches diagnostic-collection name and diagnostic.source)",
 	);
-	assert.ok(
-		props["no-animal-violence.severity"],
-		"must declare no-animal-violence.severity configuration key",
-	);
-	assert.equal(
-		props["speciesism.enable"],
-		undefined,
-		"must NOT retain the legacy speciesism.* namespace",
-	);
-	assert.equal(
-		props["speciesism.severity"],
-		undefined,
-		"must NOT retain the legacy speciesism.* namespace",
-	);
+	assert.ok(props["no-animal-violence.severity"], "must declare no-animal-violence.severity configuration key");
+	assert.equal(props["speciesism.enable"], undefined, "must NOT retain the legacy speciesism.* namespace");
+	assert.equal(props["speciesism.severity"], undefined, "must NOT retain the legacy speciesism.* namespace");
 });
